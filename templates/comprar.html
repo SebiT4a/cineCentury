@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>20th Century Studios - Compra de Tickets</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+
+        --primary-bg: #000716;      /* Dark blue-black, your first specified color */
+        --secondary-bg: #001428;
+        --accent-color: #e31221;
+        --text-primary: #ffffff;
+        --text-secondary: #a0a0a0;
+        }
+            
+        
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: var(--secondary-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .cinema-container {
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin: 2rem auto;
+            padding: 3rem;
+            max-width: 1200px;
+        }
+
+        .ticket-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .movie-poster-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .movie-poster {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .movie-poster:hover {
+            transform: scale(1.02);
+        }
+
+        .ticket-details h1 {
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .movie-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            background-color: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .movie-info-item {
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+        }
+
+        .movie-info-item i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 35px;
+            text-align: center;
+        }
+
+        .movie-description {
+            margin-top: 1.5rem;
+        }
+
+        .movie-trailer {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .movie-trailer-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .movie-trailer iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .price-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .btn-purchase, .btn-cancel {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-cancel {
+            background-color: #e74c3c;
+        }
+
+        .btn-purchase:hover, .btn-cancel:hover {
+            background-color: #ff1a1a;
+        }
+
+        footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <main class="container">
+        <div class="cinema-container">
+            <div class="ticket-header">
+                <div class="movie-poster-container">
+                    <img src="/media/{{ funcion.pelicula.imagen }}" alt="{{ funcion.pelicula.nombre }}" class="movie-poster">
+                </div>
+                <div class="ticket-details">
+                    <h1>{{ funcion.pelicula.nombre }}</h1>
+                    <div class="movie-info">
+                        <div class="movie-info-item">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>{{ funcion.fecha }}</span>
+                        </div>
+                        <div class="movie-info-item">
+                            <i class="far fa-clock"></i>
+                            <span>{{ funcion.hora }}</span>
+                        </div>
+                        <div class="movie-info-item">
+                            <i class="fas fa-tv"></i>
+                            <span>Sala {{ funcion.sala }}</span>
+                        </div>
+                        <div class="movie-info-item">
+                            <i class="fas fa-chair"></i>
+                            <span>{{ funcion.asientos_disponibles }} asientos disponibles</span>
+                        </div>
+                    </div>
+                    <div class="movie-description">
+                        <h2>Descripción:</h2>
+                        <p>{{ funcion.pelicula.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-trailer">
+                <h2>Trailer:</h2>
+                <div class="movie-trailer-wrapper">
+                    <iframe src="{{ funcion.pelicula.trailer_url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="price-section">
+                <div class="price-tag">
+                    <i class="fas fa-ticket-alt me-2"></i>
+                    ${{ funcion.precio }}
+                </div>
+                <div class="seats-available">
+                    <i class="fas fa-chair me-2"></i>
+                    {{ funcion.asientos_disponibles }} asientos disponibles
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                {% csrf_token %}
+                
+                <!-- Redirigir al formulario de compra pasando funcion.id como parámetro -->
+                <form action="{% url 'agregar_ticket' id_funcion=funcion.id %}" method="get">
+                    <button type="submit" class="btn btn-purchase">
+                        <i class="fas fa-shopping-cart me-2"></i>
+                        Comprar entradas
+                    </button>
+                </form>
+            
+                <a href="/" class="btn btn-cancel">
+                    <i class="fas fa-times me-2"></i>
+                    Cancelar
+                </a>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

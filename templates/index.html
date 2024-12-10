@@ -1,0 +1,575 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantora+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Lilita+One&display=swap" rel="stylesheet">
+
+    <title>20th Century Studios</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+    --primary-color: #113CCF;
+    --secondary-color: #00204A;
+        }
+
+    body {
+        background-color: #000;
+        color: #fff;
+        font-family: "Lilita One", sans-serif;  /* Aplica la fuente Lilita One */
+        font-weight: 400;  /* Peso de la fuente normal */
+        font-style: normal;  /* Estilo normal (no cursiva) */
+        margin: 0;
+        padding: 0;
+    }
+
+
+
+
+    .navbar-brand img {
+        height: 70px; /* Ajusta el tamaño del logo */
+    }
+
+    .navbar {
+        padding: 0.5rem 1rem; /* Reduce el padding para ajustar mejor */
+    }
+
+    .navbar .btn-link {
+        padding: 0; /* Elimina padding extra del botón */
+        margin-right: 15px; /* Asegura que quede pegado a la derecha */
+    }
+
+    .navbar .fa-user {
+        font-size: 1.3rem; /* Ajusta el tamaño del ícono de usuario */
+    }
+
+
+            /* Hero Section */
+            /* Restaurar estilos originales para la sección Featured Movie */
+            /* Ajustes para que el texto esté más arriba y sea más pequeño */
+    .featured-movie {
+        background-color: #000; /* Fondo oscuro */
+        padding: 5rem 0; /* Espacio dentro de la sección */
+        margin-top: 9rem; /* Espacio externo para empujar la sección hacia abajo */
+    }
+
+
+
+    .featured-movie-content {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start; /* Alinear elementos al inicio */
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .featured-movie-info {
+        flex: 1;
+        color: #fff;
+        margin-top: -20px; /* Mover texto más arriba */
+    }
+
+    .featured-movie-poster {
+        flex: 0 0 40%;
+        max-width: 500px;
+    }
+
+    .featured-movie-poster img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+/* Texto del contenido */
+    .featured-movie-info h2 {
+        font-size: 2rem; /* Reducir tamaño del título */
+        margin-bottom: 0.5rem; /* Reducir espacio debajo del título */
+        text-transform: uppercase;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .featured-movie-info p {
+        font-size: 1rem; /* Reducir tamaño del párrafo */
+        line-height: 1.4; /* Ajustar altura de línea */
+        color: #ccc;
+    }
+
+
+
+        /* Movies Carousel */
+
+    .hero-section {
+      margin-top: 3rem; /* Mueve la sección hacia abajo */
+    }
+
+
+        .movies-carousel {
+            background-color: #000;
+            padding: 1rem 0; /* Reducir espacio */
+            margin-top: 8rem;
+        }
+
+        .carousel-inner {
+            height: 450px; /* Altura ajustada */
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            height: 100%;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            image-rendering: -webkit-optimize-contrast; /* Optimización visual */
+            image-rendering: crisp-edges; /* Firefox */
+            -ms-interpolation-mode: nearest-neighbor; /* IE */
+        }
+
+        /* Overlay for Movie Info */
+        .movie-info-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 1.5rem; /* Reducir espacio */
+            text-align: center;
+        }
+
+        .movie-info-overlay h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .movie-info-details {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Carousel Controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 3%; /* Reducir tamaño */
+            opacity: 0.7; /* Ajustar visibilidad */
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            bottom: 10px; /* Posición ajustada */
+            margin: 0; /* Eliminar márgenes */
+            padding: 0; /* Eliminar relleno */
+        }
+
+        /* General Button Styles */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(45deg, #001428, #000716);
+            padding: 1.5rem 0; /* Reducir espacio */
+            margin-top: 2rem;
+        }
+
+        /* Visit Site Button */
+        .visit-site-btn {
+            display: inline-block;
+            background-color: #e31837;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .visit-site-btn:hover {
+            background-color: #b31329;
+            color: white;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2.5rem; /* Reducir tamaño */
+            text-align: center;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Image Optimizations */
+        .carousel-item img {
+            transform: translateZ(0); /* Hardware acceleration */
+            backface-visibility: hidden;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 300px;
+                margin-top: 9rem; /* Altura más pequeña en móviles */
+            }
+            .carousel-caption h5 {
+                font-size: 1.2rem; /* Reducir tamaño del título */
+            }
+            .carousel-caption p {
+                font-size: 0.9rem; /* Reducir descripción */
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container-fluid">
+            <!-- Logo a la izquierda -->
+            <a class="navbar-brand" href="#">
+                <img src="/media/logo/logo.1.jpg" alt="20TH CENTURY STUDIOS" style="height: 60px;">
+            </a>
+    
+            <!-- Espaciador central para distribuir elementos -->
+            <div class="ms-auto">
+                <!-- Ícono de usuario a la derecha -->
+                <a href="/admin/" class="btn btn-link text-white">
+                    <i class="fas fa-user fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div id="heroCarousel" class="carousel slide container-fluid" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for image in carousel_images %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <img src="{{ image.image.url }}" class="d-block w-100 img-fluid" alt="{{ image.alt_text }}">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </section>
+    
+
+    <!-- Featured Movie Section (Alien: Romulus) -->
+    <section class="featured-movie">
+        <div class="container">
+            <div class="featured-movie-content">
+                <div class="featured-movie-poster">
+    
+                    <img src="/media/alien/alien_romulus.jpg" alt="Alien: Romulus Poster">
+
+
+                </div>
+                <div class="featured-movie-info">
+                    <h1 class="display-4 mb-4">Alien: Romulus</h1>
+                    <p class="lead mb-4">
+                        La aclamada franquicia de terror espacial vuelve a sus raíces: Mientras exploran los confines de una estación espacial abandonada, un grupo de jóvenes colonos espaciales se encuentra cara a cara con la forma de vida más terrorífica del universo.
+                    </p>
+                    <p class="mb-4">
+                        La película está protagonizada por Cailee Spaeny, David Jonsson, Archie Renaux, Isabela Merced, Spike Fearn, Aileen Wu. Dirigida por Fede Álvarez.
+                    </p>
+                    <p class="mb-3">Fecha de estreno: 16 de Agosto, 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Movies Section -->
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Movie Carousel</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+        <style>
+        .movies-carousel {
+            position: relative;
+            padding: 2rem 0;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        .movies-scroll {
+            position: relative;
+            padding: 0 60px;
+        }
+        
+        .movies-container {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 20px 0;
+        }
+        
+        .movies-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .movie-card {
+            flex: 0 0 auto;
+            width: 300px;
+            scroll-snap-align: center;
+            perspective: 1000px;
+        }
+        
+        .movie-card-inner {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        
+        .movie-card:hover .movie-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .movie-card-front, 
+        .movie-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+        }
+        
+        .movie-card-front {
+            z-index: 2;
+        }
+        
+        .movie-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .movie-card-back {
+            background: linear-gradient(45deg, #001428, #000716);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .movie-card-back h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .btn-primary {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        
+        .scroll-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        
+        .scroll-btn.prev {
+            left: 10px;
+        }
+        
+        .scroll-btn.next {
+            right: 10px;
+        }
+        
+        .no-movies {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        </style>
+
+
+
+
+
+    </head>
+    <body>
+        <section class="movies-carousel">
+            <h2 class="section-title">Cartelera Actual</h2>
+            <div class="movies-scroll">
+                <div class="movies-container">
+                    {% if funciones %}
+                    {% for f in funciones %}
+                    <div class="movie-card">
+                        <div class="movie-card-inner">
+                            <div class="movie-card-front">
+                                <img src="media/{{ f.pelicula.imagen }}" alt="{{ f.pelicula.nombre }}">
+                            </div>
+                            <div class="movie-card-back">
+                                <h3>{{ f.pelicula.nombre }}</h3>
+                                <a href="comprar/{{ f.id }}" class="btn btn-primary">
+                                    <i class="fas fa-ticket-alt me-2"></i>COMPRAR
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="no-movies">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>No hay funciones disponibles</strong>
+                    </div>
+                    {% endif %}
+                </div>
+                <button class="scroll-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="scroll-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+    
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.movies-container');
+            const prevBtn = document.querySelector('.scroll-btn.prev');
+            const nextBtn = document.querySelector('.scroll-btn.next');
+            
+            // Scroll functionality
+            prevBtn.addEventListener('click', () => {
+                container.scrollBy({
+                    left: -container.clientWidth,
+                    behavior: 'smooth'
+                });
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                container.scrollBy({
+                    left: container.clientWidth,
+                    behavior: 'smooth'
+                });
+            });
+    
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextBtn.click();
+            });
+        });
+        </script>
+    </body>
+    </html>
+
+
+    <footer class="footer text-center py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <h6 class="mb-1">Contacto</h6>
+                    <small><i class="fas fa-envelope me-1"></i>info@20thcenturystudios.com</small>
+                </div>
+                <div class="col-4">
+                    <h6 class="mb-2">Síguenos</h6>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/20thCenturyStudiosLA/" class="text-white me-2" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/20thcenturyla" class="text-white me-2" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/20thcenturystudios/" class="text-white" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>                    
+                </div>
+                <div class="col-4">
+                    <h6 class="mb-1">Horario</h6>
+                    <small>Lunes a Domingo<br>10:00 AM - 10:00 PM</small>
+                </div>
+            </div>
+    
+            <!-- Enlace al sistema de reclamos -->
+            <div class="row mt-3">
+                <div class="col-12">
+                    <a href="{% url 'reclamos_inicio' %}" class="text-white">Reclamos Clientes</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

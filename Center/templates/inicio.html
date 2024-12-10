@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20th Century Support</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            background-color: #000;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            color: white;
+            margin: 0;
+        }
+        
+        .hero-section {
+            background-color: #f8f9fa;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+        }
+        
+        .features-section {
+            padding: 4rem 0;
+        }
+        
+        .features-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .button:hover {
+            background-color: #0b5ed7;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Negro -->
+    <header class="header">
+        <div class="container">
+            <h1 class="text-center">20th Century Support</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Bienvenido a 20th Century Support</h1>
+                <p class="hero-subtitle">Tu centro de atención al cliente para todas las películas de 20th Century Studios</p>
+                <a href="{% url 'registrar_reclamo' %}" class="button">Registrar Reclamo</a>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="features-container">
+                <div class="feature-card">
+                    <h3>Registro Simple</h3>
+                    <p>Proceso rápido y sencillo para registrar tu reclamo</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Seguimiento en Tiempo Real</h3>
+                    <p>Mantente informado sobre el estado de tu reclamo</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Soporte Personalizado</h3>
+                    <p>Equipo dedicado a resolver tus inquietudes</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
