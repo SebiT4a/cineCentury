@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-71*+wn_&y9q6og(wv($o7d^9zy6s45y2hj3s9(c)kk%a5#c*7&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.render.com', 'localhost']
+
 
 
 # Application definition
@@ -126,6 +127,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIR = [STATIC_DIR]
+
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
