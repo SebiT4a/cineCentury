@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - Cinemacentury
+name: Build and deploy Python app to Azure Web App - cinemacentury
 
 on:
   push:
@@ -65,14 +65,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_91F1B3B443804CEA8AED15BB9A44A309 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_16D658175DF54976B1C7B137A257BE7D }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_94A9E877F2694736BBEA3E0DD33C1B9C }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7C0DFA6B8C2A4180BF4CDDE31779EA70 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C92C48FB8A2E4CEFB70BFF37850027C6 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_11643BB7A7564AB68F2EBDB314D470F7 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'Cinemacentury'
+          app-name: 'cinemacentury'
           slot-name: 'Production'
           
